@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>MyTimer</title>
+        <script src="js/timer.js" rel="text/javascript"></script>
+        <link href="css/timer.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <div id="clock">
+            <div class="clockblock" id="thr">0</div>
+            <div class="clockblock" id="ohr">0</div>
+            <div class="clockblock" >:</div>
+            <div class="clockblock" id="tmin">0</div>
+            <div class="clockblock" id="omin">0</div>
+            <div class="clockblock" >:</div>
+            <div class="clockblock" id="tsec">0</div>
+            <div class="clockblock" id="osec">0</div>
+        </div>
+        
+        
+        <div id="container">
+            <div class="button" id="start">Start</div>
+            <div class="button" id="pause">Pause</div>
+            <div class="button" id="resume">Resume</div>
+            <div class="button" id="reset">Reset</div>
+        </div>
+        <script>
+            
+            function onBodyLoad(){
+                timer.init();
+            }
+            window.addEventListener('load',onBodyLoad)
+        </script>
+    </body>
+</html>
