@@ -36,25 +36,26 @@ var timer = (function(){
         osec.innerHTML = secval1;
     }
     
-    function resume(){
-        if(interval_id === null){
-            interval_id = setInterval(clockWork, 1000);
+    function pause(){
+        if(interval_id != null){
+            clearInterval(interval_id);
+            interval_id = null;
         }
     }
     
-    function pause(){
-        clearInterval(interval_id);
-        interval_id = null;
-    }
-    
     function reset(){
-        thr.innerHTML = 0;
+        thr.innerHTML = 0; 
         ohr.innerHTML = 0;
         tmin.innerHTML = 0;
         omin.innerHTML = 0;
         tsec.innerHTML = 0;
         osec.innerHTML = 0;
-        console.log("clock reset");
+        hval2 = 0;
+        hval1 = 0;
+        mval2 = 0;
+        mval1 = 0; 
+        secval2 = 0;
+        secval1 = 0;
         clearInterval(interval_id);
         interval_id = null;
     }
@@ -66,7 +67,6 @@ var timer = (function(){
     }
     
     function init(){
-        console.log("in init");
         thr = document.getElementById('thr');
         ohr = document.getElementById('ohr');
         tmin = document.getElementById('tmin');
@@ -78,7 +78,6 @@ var timer = (function(){
         var resetB = document.getElementById('reset');
         var startB = document.getElementById('start');
         var pauseB = document.getElementById('pause');
-        var resumeB = document.getElementById('resume');
         
         secval1 = osec.innerHTML;
         secval2 = tsec.innerHTML;
@@ -90,7 +89,6 @@ var timer = (function(){
         startB.addEventListener('click',start);
         resetB.addEventListener('click',reset);
         pauseB.addEventListener('click',pause);
-        resumeB.addEventListener('click',resume);
     }
     
     return {
